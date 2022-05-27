@@ -49,7 +49,7 @@ function DeckView () {
                 <NavLink to={`/decks/${deckId}/edit`} type="button" className="btn btn-secondary" style={cardStyle}>Edit</NavLink>
                 <NavLink to={`/decks/${deckId}/study`} type="button" className="btn btn-primary" style={cardStyle}>Study</NavLink>
                 <NavLink to={`/decks/${deckId}/cards/new`} type="button" className="btn btn-primary"style={cardStyle}>Add Cards</NavLink>
-                <button type="button" className="btn btn-danger bi bi-trash" style={cardStyle} value={deckId} onClick={deleteFunction}></button>
+                <button type="button" className="btn btn-danger bi bi-trash" style={cardStyle} value={deckId} onClick={deleteFunction}>Delete</button>
             </div>
         </div>
     </div>

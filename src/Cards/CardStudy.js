@@ -56,7 +56,8 @@ function CardStudy ({deck}) {
                 </div>
             </div>
         )
-    } else if (cardNum === cardList.length-1) {     // for the last card in the deck, the "next" button is replaced by a "restart" button
+    } else if (cardNum === cardList.length-1) {    
+         // When all cards are finished, a message is shown and the user is offered the opportunity to restart the deck. If the user does not restart the deck, they return to the home screen.
         return (
             <div className="card">
                 <div className="card-body">

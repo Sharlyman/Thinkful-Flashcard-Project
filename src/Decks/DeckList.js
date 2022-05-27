@@ -31,7 +31,7 @@ function DeckList ({ decks }) {
                     <p>{deck.description} </p>
                     <NavLink to={`/decks/${deck.id}`} type="button" className="btn btn-primary" style={cardStyle}>View</NavLink>
                     <NavLink to={`/decks/${deck.id}/study`} type="button" className="btn btn-primary" style={cardStyle}>Study</NavLink>
-                    <button key={index} type="button" className="btn btn-danger bi bi-trash" style={cardStyle} value={deck.id} onClick={deleteFunction}></button>
+                    <button key={index} type="button" className="btn btn-danger bi bi-trash" style={cardStyle} value={deck.id} onClick={deleteFunction}>Delete</button>
                 </div>
             </li>
         )
