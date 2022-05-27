@@ -5,6 +5,7 @@ import {
   useHistory,
 } from "react-router-dom";
 import { readDeck, readCard, updateCard } from "../utils/api";
+//this imports readdeck, readcard and updatecard
 
 function CardEdit ( { card,  setCard } ) { 
     const history = useHistory()
@@ -13,7 +14,8 @@ function CardEdit ( { card,  setCard } ) {
     const [front, setFront] = useState("");
     const [back, setBack] = useState("");
 
-    useEffect(() => {       // effect hook containing async function to call 'getDeck' to get relevant deck data
+    useEffect(() => {      
+         // effect hook containing async function to call 'getDeck' to get relevant deck data
         const abortController = new AbortController();
         async function getDeck () {
             const gotDeck = await readDeck( deckId, abortController.signal )
@@ -22,6 +24,8 @@ function CardEdit ( { card,  setCard } ) {
         getDeck()
         return () => abortController.abort()
     }, [deckId])
+
+    // effect hook retreiving the data for the current card being edited
     useEffect(() => {       // effect hook retreiving the data for the current card being edited
         async function getCard() {
             const cardInfo = await readCard(cardId);
@@ -30,7 +34,8 @@ function CardEdit ( { card,  setCard } ) {
             setBack(cardInfo.back);
         }
         getCard();
-    }, [cardId]);
+    }, [setCard, cardId]);
+
 
     const handleFrontChange = (event) => {
         setFront(event.target.value);   // set state for front of card based on inputted form data. this is only used to display up-to-date info in the form
@@ -56,6 +61,8 @@ function CardEdit ( { card,  setCard } ) {
         marginRight: "5px",
     }
 
+    //There is a breadcrumb navigation bar with a link to home /, followed by the name of the deck of which the edited card is a member, and finally the text Edit Card :cardId (e.g., Home/Deck React Router/Edit Card 4). It displays the same form as the Add Card screen, except it is prefilled with information for the existing card. It can be edited and updated.If the user clicks on either Save or Cancel, the user is taken to the Deck screen.
+    
     return (
         <div>
             <nav aria-label="breadcrumb">
