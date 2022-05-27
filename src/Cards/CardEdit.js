@@ -34,7 +34,7 @@ function CardEdit ( { card,  setCard } ) {
             setBack(cardInfo.back);
         }
         getCard();
-    }, [setCard, cardId]);
+    }, [setCard, cardId]); //when it states the useEffect is missing a dependency, add the setCard inside.
 
 
     const handleFrontChange = (event) => {
