@@ -16,14 +16,12 @@ import NotFound from "../Layout/NotFound";
 import { listDecks } from "../utils/api";
 
 
-// NEED TO CLEAN UP THE BOOTSTRAP
-
-
 function DeckHome () {
     const [decks, setDecks] = useState([])
     const [card, setCard] = useState({})
     
-    useEffect(() => {                                       // effect hook runs 'listDecks' to update state of 'decks'
+    useEffect(() => {                                       
+        // effect hook runs 'listDecks' to update state of 'decks'
         const abortController = new AbortController();
         listDecks(abortController.signal)
             .then(setDecks)
