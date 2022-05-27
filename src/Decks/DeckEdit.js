@@ -58,7 +58,7 @@ function DeckEdit () {
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="name">Name</label>
-                    <input type="text" className="form-control" id="name" aria-describedby="name" onChange={handleNameChange} value={deckData.name} />
+                    <input type="text" className="form-control" id="name" aria-describedby="name" onChange={handleNameChange} value={deckData.name||""}/>
                 </div>
                 <div className="form-group">
                     
