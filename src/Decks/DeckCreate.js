@@ -3,6 +3,10 @@ import {
   useHistory,
 } from "react-router-dom";
 import { createDeck } from "../utils/api";
+import DeckForm from "./DeckForm";
+
+//A form is shown with the appropriate fields for creating a new deck.The name field is an <input> field of type text.The description field is a <textarea> field that can be multiple lines of text.
+
 
 function DeckCreate () {
     const history = useHistory()
@@ -32,6 +36,9 @@ function DeckCreate () {
     const cardStyle = {
         marginRight: "5px",
     }
+
+        //There is a breadcrumb navigation bar with a link to home / followed by the text Create Deck (i.e., Home/Create Deck).
+
     return (
         <div>
             <h1>Create Deck</h1>

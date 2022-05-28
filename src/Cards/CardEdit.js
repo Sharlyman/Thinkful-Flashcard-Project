@@ -5,6 +5,7 @@ import {
   useHistory,
 } from "react-router-dom";
 import { readDeck, readCard, updateCard } from "../utils/api";
+import CardForm from "./CardForm";
 //this imports readdeck, readcard and updatecard
 
 function CardEdit ( { card,  setCard } ) { 
