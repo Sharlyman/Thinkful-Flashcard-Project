@@ -10,10 +10,13 @@ function DeckStudy () {
     const { deckId } = useParams();
     const [ deck, setDeck ] = useState(""); 
     
-    useEffect(() => {       // "deckId" dependency means this runs each time a new deck is selected
+    useEffect(() => {       
+        // "deckId" dependency means this runs each time a new deck is selected
         const abortController = new AbortController();
-        readDeck(deckId, abortController.signal)    // calls "readDeck" api (promise)
-            .then(setDeck)                          // sets deck state to the result of api promise
+        readDeck(deckId, abortController.signal)   
+         // calls "readDeck" api (promise)
+            .then(setDeck)                         
+             // sets deck state to the result of api promise
         
         return () => abortController.abort()
     },[deckId])
