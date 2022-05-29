@@ -53,10 +53,12 @@ function CardEdit ( { card,  setCard } ) {
         });
     }
     
-    const handleSubmit = async (event) => {     // async submit handler that calls 'updateCard' api
+    // async submit handler that calls 'updateCard' api
+    const handleSubmit = async (event) => {     
         event.preventDefault();
         await updateCard(card)
-        history.push(`/decks/${deckId}`)        // return to deck view page
+        // return to deck view page
+        history.push(`/decks/${deckId}`)        
     }
     const cardStyle = {
         marginRight: "5px",
@@ -74,20 +76,11 @@ function CardEdit ( { card,  setCard } ) {
                 </ol>
             </nav>
             <h1>Edit Card</h1>
-            <form name="addCard" onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label htmlFor="front" className="form-label">Front</label>
-                    <textarea type="text" className="form-control" rows="3" id="front" onChange={handleFrontChange}  value={front}></textarea>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="back" className="form-label">Back</label>
-                    <textarea type="text" className="form-control" rows="3" id="back" onChange={handleBackChange}  value={back}></textarea>
-                </div>
-                <button type="button" className="btn btn-secondary" style={cardStyle} onClick={() => history.push(`/decks/${deckId}`)}>Cancel</button>
-                <button type="submit" className="btn btn-primary">Submit</button>
-            </form>
+            <CardForm handleSubmit={handleSubmit} handleFrontChange={handleFrontChange} handleBackChange={handleBackChange} front={front} back={back} deckId={deckId}/>
         </div>
     )
 }
+
+
 
 export default CardEdit

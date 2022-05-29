@@ -50,9 +50,7 @@ function CardAdd () {
         setCardData({...initialFormState});     // reset form to blank 
         history.push(`/decks/${deckId}`)        // return to deck view
     }
-    const cardStyle = {
-        marginRight: "5px",
-    }
+
 
     /* There is a breadcrumb navigation bar with a link to home /, 
     followed by the name of the deck to which the cards are being added,
@@ -72,20 +70,11 @@ function CardAdd () {
                 </ol>
             </nav>
             <h1>{deck.name}: Create Card</h1>
-            <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label htmlFor="front" className="form-label">Front</label>
-                    <textarea type="text" className="form-control" id="front" placeholder="Front side of card" onChange={handleFront} value={cardData.front}></textarea>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="back" className="form-label">Back</label>
-                    <textarea type="text" className="form-control" id="back" placeholder="Back side of card" onChange={handleBack} value={cardData.back}></textarea>
-                </div>
-                <button type="submit" className="btn btn-secondary" style={cardStyle} onClick={() => history.push("/")}>Cancel</button>
-                <button type="submit" className="btn btn-primary">Submit</button>
-            </form>
+            
+            <CardForm handleSubmit={handleSubmit} handleFrontChange={handleFront} handleBackChange={handleBack} front={cardData.front} back={cardData.back} deckId={deckId} />
         </div>
     )
 }
+
 
 export default CardAdd
