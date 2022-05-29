@@ -1,6 +1,8 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
+//this will have the detailed of the cards and be imported into cardadd and cardedit so it shares this component. 
+
 function CardForm ( { handleSubmit, handleFrontChange, handleBackChange, front, back, deckId } ) {
     const history = useHistory()
     const cardStyle = {
